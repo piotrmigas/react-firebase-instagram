@@ -7,7 +7,7 @@ import usePaginatedPosts from "../hooks/usePaginatedPosts";
 import { motion } from "framer-motion";
 
 const Home: React.FC = () => {
-  const { loadingMore, loadMore, hasMore, posts, loading } = usePaginatedPosts();
+  const { loadingMore, loadMore, hasMore, posts } = usePaginatedPosts();
 
   const isPageBottom = usePageBottom();
 
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     loadMore();
   }, [isPageBottom]);
 
-  if (loading) return null;
+  if (!posts) return null;
 
   return (
     <motion.div
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
         visible: {
           opacity: 1,
           transition: {
-            delay: 0.4,
+            delay: 0.2,
           },
         },
       }}

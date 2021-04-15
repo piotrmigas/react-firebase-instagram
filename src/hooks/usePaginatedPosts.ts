@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getPaginatedPosts } from "../redux/actions";
 
 export default function usePaginatedPosts() {
-  const { items, loadMore, loadingMore, hasMore, loading } = usePagination(db.collection("posts"), { limit: 9 });
+  const { items, loadMore, loadingMore, hasMore } = usePagination(db.collection("posts"), { limit: 9 });
 
   const posts = items.map((item) => ({
     ...item.data(),
@@ -18,5 +18,5 @@ export default function usePaginatedPosts() {
     dispatch(getPaginatedPosts(posts));
   }, [dispatch, posts]);
 
-  return { loadMore, loadingMore, hasMore, posts, loading };
+  return { loadMore, loadingMore, hasMore, posts };
 }
