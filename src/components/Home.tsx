@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     loadMore();
   }, [isPageBottom]);
 
-  if (!posts) return null;
+  if (posts.length === 0) return null;
 
   return (
     <motion.div
