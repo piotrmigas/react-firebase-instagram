@@ -16,8 +16,6 @@ const Home: React.FC = () => {
     loadMore();
   }, [isPageBottom]);
 
-  if (posts.length === 0) return null;
-
   return (
     <motion.div
       initial="hidden"
@@ -29,7 +27,7 @@ const Home: React.FC = () => {
         visible: {
           opacity: 1,
           transition: {
-            delay: 0.2,
+            delay: 0.4,
           },
         },
       }}
